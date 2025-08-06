@@ -1,1 +1,0 @@
---Player Details Query
