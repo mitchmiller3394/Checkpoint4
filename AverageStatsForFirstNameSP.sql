@@ -1,13 +1,12 @@
 -- Given <first name>, what are the avg stats ? 
 
--- TODO: add hitting stats 
-
 DELIMITER $$
-Drop procedure if exists getStatsForFirstName(IN playerName_in VARCHAR(100))
+Drop procedure if exists getStatsForFirstName;
+Create Procedure getStatsForFirstName(IN playerName_in VARCHAR(50))
 BEGIN 
-SELECT Avg(era),Avg(w),Avg(e) FROM pitching AS pitch
-INNER JOIN fielding AS field ON field.player_id = pitch.player_id
-WHERE pitch.player_id IN (SELECT player_id FROM players WHERE name_first LIKE playerName_in);
-
+SELECT Avg(era) as avg_era, Avg(w) as avg_wins, Avg(e) average_errors, Avg(bat.h/bat.ab) as avg_ba FROM pitching AS pitch
+	INNER JOIN fielding AS field ON field.player_id = pitch.player_id
+	INNER JOIN batting AS bat ON bat.player_id = pitch.player_id
+	WHERE pitch.player_id IN (SELECT player_id FROM players WHERE name_first LIKE playerName_in);
 END$$
 DELIMITER ;

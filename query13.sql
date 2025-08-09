@@ -1,1 +1,0 @@
--- Given <first name>, what are the avg stats
