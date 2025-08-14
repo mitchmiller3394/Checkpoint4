@@ -6,7 +6,7 @@ BEGIN
 SELECT
     c.team_id,
     s.year,
-    sum(s.salary)
+    sum(s.salary) as total_salary
 FROM
     cost c,
     salary s
