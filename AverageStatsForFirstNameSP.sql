@@ -7,6 +7,6 @@ BEGIN
 SELECT Avg(era) as avg_era, Avg(w) as avg_wins, Avg(e) average_errors, Avg(bat.h/bat.ab) as avg_ba FROM pitching AS pitch
 	INNER JOIN fielding AS field ON field.player_id = pitch.player_id
 	INNER JOIN batting AS bat ON bat.player_id = pitch.player_id
-	WHERE pitch.player_id IN (SELECT player_id FROM players WHERE name_first LIKE playerName_in);
+	WHERE pitch.player_id IN (SELECT player_id FROM player WHERE name_first LIKE playerName_in);
 END$$
 DELIMITER ;
