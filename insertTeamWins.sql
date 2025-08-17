@@ -1,7 +1,7 @@
 DELIMITER $$
 DROP PROCEDURE IF EXISTS insertTeamWins;
 CREATE PROCEDURE insertTeamWins(
-    IN p_team_id INT,
+    IN p_team_id VARCHAR(255),
     IN p_year INT,
     IN p_g INT,
     IN p_wins INT,
