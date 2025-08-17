@@ -1,4 +1,4 @@
---Insert New User Stored Procedure
+--Insert New User Stored Procedure test
 --"INSERT INTO users (username, email, hash, isAdmin) VALUES (?, ?, ?, 0)"
 DELIMITER $$
 DROP PROCEDURE IF EXISTS insertNewUser;
